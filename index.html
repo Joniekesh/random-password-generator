@@ -32,9 +32,9 @@
         var pass = "";
 
         for (let i = 1; i <= 16; i++) {
-          const charItem = Math.floor(Math.random() * str.length + 1);
+          const char = Math.floor(Math.random() * str.length + 1);
 
-          pass += str.charAt(charItem);
+          pass += str.charAt(char);
         }
         return pass;
       }
@@ -48,6 +48,8 @@
       copyBtn.addEventListener("click", () => {
         if (password.innerHTML) {
           copied.style.display = "flex";
+
+          navigator.clipboard.writeText(password.innerHTML);
         } else {
           alert("You have not generated password yet!");
         }
