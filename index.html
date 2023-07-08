@@ -8,16 +8,18 @@
   </head>
   <body>
     <div class="main">
+      <span class="logo">jonieDev</span>
       <h2>RANDOM PASSWORD GENERATOR</h2>
       <div class="content">
         <span class="copied">COPIED</span>
         <div class="item">
           <p class="pass"></p>
-          <button class="generate" onclick="generate()">Generate</button>
+          <button class="generate" onclick="generate()">GENERATE</button>
         </div>
-        <button class="copyBtn">COPY</button>
+        <button class="copyBtn">COPY TO CLIPBOARD</button>
       </div>
     </div>
+
     <script>
       var password = document.querySelector(".pass");
       const generateBtn = document.querySelector(".generate");
@@ -29,7 +31,7 @@
           "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890@#";
         var pass = "";
 
-        for (let i = 1; i <= 10; i++) {
+        for (let i = 1; i <= 16; i++) {
           const charItem = Math.floor(Math.random() * str.length + 1);
 
           pass += str.charAt(charItem);
