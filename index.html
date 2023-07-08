@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Random Password Generator</title>
+  </head>
+  <body>
+    <div class="main">
+      <h2>RANDOM PASSWORD GENERATOR</h2>
+      <div class="content">
+        <span class="copied">COPIED</span>
+        <div class="item">
+          <p class="pass"></p>
+          <button class="generate" onclick="generate()">Generate</button>
+        </div>
+        <button class="copyBtn">COPY</button>
+      </div>
+    </div>
+    <script>
+      var password = document.querySelector(".pass");
+      const generateBtn = document.querySelector(".generate");
+      const copied = document.querySelector(".copied");
+      const copyBtn = document.querySelector(".copyBtn");
+
+      function generatePassword() {
+        var str =
+          "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890@#";
+        var pass = "";
+
+        for (let i = 1; i <= 10; i++) {
+          const charItem = Math.floor(Math.random() * str.length + 1);
+
+          pass += str.charAt(charItem);
+        }
+        return pass;
+      }
+
+      function generate() {
+        password.innerHTML = generatePassword();
+        copied.style.display = "none";
+        copyBtn.style.display = "flex";
+      }
+
+      copyBtn.addEventListener("click", () => {
+        if (password.innerHTML) {
+          copied.style.display = "flex";
+        } else {
+          alert("You have not generated password yet!");
+        }
+      });
+    </script>
+  </body>
+</html>
